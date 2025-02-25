@@ -61,7 +61,7 @@ footer {
 
 nav ul {
   display: flex;
-  gap: 5rem;
+  gap: 2.5rem;
 }
 
 nav ul li {
@@ -80,4 +80,20 @@ nav a:hover,
 nav a:active {
   color: #482e1d;
   border-bottom: 4px solid #482e1d;
+}
+
+.right-corner {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.right-corner img {
+  width: 24px;
+  height: 24px;
+  transition: 0.3s ease;
+}
+
+.right-corner img:hover {
+  transform: scale(1.2);
 }

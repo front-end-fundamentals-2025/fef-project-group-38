@@ -89,11 +89,27 @@ nav a:active {
 }
 
 .right-corner img {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   transition: 0.3s ease;
 }
 
 .right-corner img:hover {
   transform: scale(1.2);
+}
+
+h1 {
+  font-size: 5rem;
+  align-items: center;
+  padding: 5rem 5%;
+  margin-left: 40rem;
+}
+
+p {
+  font-size: 1.5rem;
+  margin-left: 43rem;
+}
+
+a {
+  font-size: 1.5rem;
 }
