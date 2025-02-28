@@ -1,5 +1,4 @@
 //Check if user logged in
-
 function checkedLoggedIn() {
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
   if (user) {
@@ -66,5 +65,5 @@ if (document.getElementById("create-account-form")) {
     });
 }
 
-//Check login status on åage load
+//Check login status on page load
 window.onload = checkedLoggedIn;
