@@ -91,11 +91,92 @@ nav a:active {
 }
 
 .right-corner img {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   transition: 0.3s ease;
 }
 
 .right-corner img:hover {
   transform: scale(1.2);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  padding: 2rem;
+}
+
+#create-account-form {
+  background-color: #e3bf75;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+#create-account-form h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #895d2b;
+}
+
+#create-account-form label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #90553c;
+  text-align: left;
+}
+
+#create-account-form input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  border: 2px solid #895d2b;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #90553c;
+  transition: border-color 0.3s ease;
+}
+
+#create-account-form input:focus {
+  border-color: #482e1d;
+}
+
+#create-account-form button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #895d2b;
+  color: #f0daae;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#create-account-form button:hover {
+  background-color: #482e1d;
+}
+
+#create-account-form p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #90553c;
+}
+
+#create-account-form a {
+  color: #895d2b;
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+#create-account-form a:hover {
+  color: #482e1d;
 }

@@ -7,9 +7,6 @@ function checkedLoggedIn() {
       window.location.pathname.endsWith("create-account-html")
     ) {
       window.location.href = "user.html"; //Redirects to user page if logged in
-    } else if (window.location.pathname.endsWith("user.html")) {
-      document.getElementById("user-info").textContent =
-        "Name: Jane Doe    Email: janedoe@gmail.com";
     }
   } else if (window.location.pathname.endsWith("user.html")) {
     window.location.href = "login.html"; //Redirects to login page if not logged in
@@ -63,6 +60,15 @@ if (document.getElementById("create-account-form")) {
         window.location.href = "login.html"; //Redirect to login page
       }
     });
+}
+
+//Handle logout
+if (document.getElementById("logout-link")) {
+  document.getElementById("logout-link").addEventListener("click", (e) => {
+    e.preventDefault(); //Prevents the default link behaviiour
+    localStorage.removeItem("loggedInUser"); //Clears the logged in user
+    window.location.href = "login.html"; //Redirects to the login page
+  });
 }
 
 //Check login status on page load
