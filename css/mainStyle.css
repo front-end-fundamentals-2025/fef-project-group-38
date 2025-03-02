@@ -128,3 +128,25 @@ nav a:active {
   font-weight: bold;
   cursor: pointer;
 }
+
+/*Product Images*/
+main {
+  padding: 20px;
+}
+
+.product {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+
+.product img {
+  width: 200px;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.product p {
+  margin-top: 10px;
+  font-size: 15px;
+}
