@@ -129,28 +129,61 @@ nav a:active {
   cursor: pointer;
 }
 
-/*Product Images*/
-main {
-  padding: 20px;
+/*Title*/
+.mainTitle {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
+.mainTitle h2 {
+  font-size: 3rem;
+  color: #90553c;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/*Product Images*/
 .product-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 21px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .product {
   text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border: 1px solid #895d2b;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: scale(1.05);
 }
 
 .product img {
-  width: 300px;
-  height: 300px;
+  width: 100%;
+  height: auto;
+  max-width: 300px;
   border-radius: 4px;
 }
 
 .product p {
   margin-top: 10px;
-  font-size: 15px;
+  font-size: 25px;
+  color: #90553c;
+}
+
+/*Product price*/
+.product .price {
+  display: block;
+  font-size: 1.2rem;
+  color: #895d2b;
+  margin-top: 5px;
 }
