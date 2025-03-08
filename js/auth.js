@@ -73,3 +73,71 @@ if (document.getElementById("logout-link")) {
 
 //Check login status on page load
 window.onload = checkedLoggedIn;
+
+//Cart functionality
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+//Function to update cart count
+function updateCartCount() {
+  const cartCount = document.getElementById("cart-count");
+  cartCount.textContent = cart.length;
+}
+
+//Function to add a product to the cart
+function addToCart(product) {
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  alert(`${product.name} added to cart!`);
+}
+
+//Function to display cart items in the modal
+function displayCartItems() {
+  const cartItems = document.getElementById("cart-items");
+  cartItems.innerHTML = ""; //Clear previous items
+
+  cart.forEach((item) => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} - ${item.price}kr`;
+    cartItems.appendChild(li);
+  });
+}
+
+//Add to cart button functionality
+document.querySelectorAll(".add-to-cart").forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    const product = {
+      name: e.target.closest(".product-info").querySelector("h1").textContent,
+      price: e.target.closest(".product-info").querySelector(".price")
+        .textContent,
+      image: e.target.closest(".product-detail").querySelector("img").src,
+    };
+    addToCart(product);
+  });
+});
+
+//Cart icon click to open modal
+document.querySelector(".cart-icon").addEventListener("click", (e) => {
+  e.preventDefault();
+  const modal = document.getElementById("cart-modal");
+  modal.style.display = "block";
+  displayCartItems();
+});
+
+//Close the modal
+document.querySelector(".close").addEventListener("click", () => {
+  const modal = document.getElementById("cart-modal");
+  modal.style.display = "none";
+});
+
+//Checkout button functionality
+document.getElementById("checkout-button").addEventListener("click", () => {
+  alert("Coming soon");
+});
+
+//Update cart count on page load
+window.onload = () => {
+  updateCartCount();
+  checkedLoggedIn(); //Existing login check
+};
