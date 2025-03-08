@@ -99,3 +99,30 @@ nav a:active {
 .right-corner img:hover {
   transform: scale(1.2);
 }
+
+
+/*Product Images*/
+main {
+  padding: 20px;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 21px;
+}
+
+.product {
+  text-align: center;
+}
+
+.product img {
+  width: 300px;
+  height: 300px;
+  border-radius: 4px;
+}
+
+.product p {
+  margin-top: 10px;
+  font-size: 15px;
+}
