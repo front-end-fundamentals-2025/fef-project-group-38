@@ -111,45 +111,6 @@ main {
   text-align: center;
 }
 
-/*User info section*/
-.user-info {
-  background-color: #e3bf75;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-}
-
-.user-info h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5 rem;
-  color: #895d2b;
-}
-
-.user-info p {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-  color: #90553c;
-}
-
-#logout-link {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  background-color: #895d2b;
-  color: #f0daae;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#logout-link:hover {
-  background-color: #482e1d;
-}
-
 /*Cart count*/
 #cart-count {
   background-color: #482e1d;

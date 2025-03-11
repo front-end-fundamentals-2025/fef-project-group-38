@@ -1,17 +1,4 @@
-//Check if user logged in
-function checkedLoggedIn() {
-  const user = JSON.parse(localStorage.getItem("loggedInUser"));
-  if (user) {
-    if (
-      window.location.pathname.endsWith("login.html") ||
-      window.location.pathname.endsWith("create-account-html")
-    ) {
-      window.location.href = "user.html"; //Redirects to user page if logged in
-    }
-  } else if (window.location.pathname.endsWith("user.html")) {
-    window.location.href = "login.html"; //Redirects to login page if not logged in
-  }
-}
+//LOGIN/CREATE ACCOUNT
 
 //Handle login submission
 if (document.getElementById("login-form")) {
@@ -33,6 +20,21 @@ if (document.getElementById("login-form")) {
       alert("Invalid email or password.");
     }
   });
+}
+
+//Check if user logged in
+function checkedLoggedIn() {
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (user) {
+    if (
+      window.location.pathname.endsWith("login.html") ||
+      window.location.pathname.endsWith("create-account-html")
+    ) {
+      window.location.href = "user.html"; //Redirects to user page if logged in
+    }
+  } else if (window.location.pathname.endsWith("user.html")) {
+    window.location.href = "login.html"; //Redirects to login page if not logged in
+  }
 }
 
 //Handle create account form submission
@@ -74,6 +76,8 @@ if (document.getElementById("logout-link")) {
 //Check login status on page load
 window.onload = checkedLoggedIn;
 
+//CART
+
 //Cart functionality
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -98,7 +102,7 @@ function displayCartItems() {
 
   cart.forEach((item) => {
     const li = document.createElement("li");
-    li.textContent = `${item.name} - ${item.price}kr`;
+    li.textContent = `${item.name} - ${item.price}`;
     cartItems.appendChild(li);
   });
 }
