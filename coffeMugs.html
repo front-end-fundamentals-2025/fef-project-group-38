@@ -11,7 +11,6 @@
   <body>
     <header>
       <!--Logo that takes you back to homescreen when pressed-->
-      <!--Replace it with other logo-->
       <a href="index.html" class="logo">Cozy Cup</a>
 
       <!--Navigation menu-->
@@ -25,7 +24,6 @@
         </ul>
       </nav>
 
-
       <!--Right corner options-->
       <div class="right-corner">
         <a href="#" class="search-icon"
@@ -35,64 +33,81 @@
           ><img src="images/user.png" alt="Login"
         /></a>
         <a href="#" class="cart-icon"
-          ><img src="images/cart-icon.png" alt="Cart"
-        /></a>
+          ><img src="images/cart-icon.png" alt="Cart" /><span id="cart-count"
+            >0</span
+          ></a
+        >
       </div>
     </header>
+
+    <!--Cart modal-->
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <button id="checkout-button">Checkout</button>
+      </div>
+    </div>
 
     <main>
       <section>
         <h2>CozyCup™ mugs</h2>
+
         <div class="product-container">
-          <div class="product">
+          <a href="product-coffeeMug.html" class="product">
             <img src="images/coffee-mug.jpeg" alt="Coffee Mug" />
             <p>Ceramic coffee mug yellow</p>
-          </div>
+            <span class="price">150kr</span>
+          </a>
 
-          <a href="#" class="product">
+          <a href="product-coffeeMug.html" class="product">
             <img src="images/grey.jpeg" alt="Coffee Mug" />
             <p>Ceramic coffee mug grey</p>
             <span class="price">150kr</span>
           </a>
 
-          <a href="#" class="product">
+          <a href="product-coffeeMug.html" class="product">
             <img src="images/pink.jpeg" alt="Coffee Mug" />
             <p>Ceramic coffee mug pink</p>
             <span class="price">150kr</span>
           </a>
 
-          <a href="#" class="product">
+          <a href="product-coffeeMug.html" class="product">
             <img src="images/blue.jpeg" alt="Coffee Mug" />
             <p>Ceramic coffee mug blue</p>
             <span class="price">150kr</span>
           </a>
 
-          <a href="#" class="product">
+          <a href="product-coffeeMug.html" class="product">
             <img src="images/green.jpeg" alt="Coffee Mug" />
             <p>Ceramic coffee mug green</p>
             <span class="price">150kr</span>
           </a>
 
-          <a href="#" class="product">
+          <a href="product-coffeeMug.html" class="product">
             <img src="images/white.jpeg" alt="Coffee Mug" />
             <p>Ceramic coffee mug white</p>
             <span class="price">150kr</span>
           </a>
 
-          <div class="product">
+          <a href="product-coffeeCup.html" class="product">
             <img src="images/coffee-cup.jpeg" alt="Coffee Cup" />
             <p>Reusable white coffee cup</p>
-          </div>
+            <span class="price">100kr</span>
+          </a>
 
-          <div class="product">
+          <a href="product-metalCup.html" class="product">
             <img src="images/metal-cup.jpeg" alt="Metal Cup" />
             <p>Metal coffee brewer</p>
-          </div>
-          </div>
-          </section>
-        </main>  
+            <span class="price">400kr</span>
+          </a>
+        </div>
+      </section>
+    </main>
 
     <!--Footer-->
     <footer><p>@Cozy Cup 2025</p></footer>
+    <script src="js/auth.js"></script>
   </body>
 </html>

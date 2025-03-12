@@ -11,7 +11,6 @@
   <body>
     <header>
       <!--Logo that takes you back to homescreen when pressed-->
-      <!--Replace it with other logo-->
       <a href="index.html" class="logo">Cozy Cup</a>
 
       <!--Navigation menu-->
@@ -34,29 +33,43 @@
           ><img src="images/user.png" alt="Login"
         /></a>
         <a href="#" class="cart-icon"
-          ><img src="images/cart-icon.png" alt="Cart"
-        /></a>
+          ><img src="images/cart-icon.png" alt="Cart" /><span id="cart-count"
+            >0</span
+          ></a
+        >
       </div>
     </header>
+
+    <!--Cart modal-->
+    <div id="cart-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <button id="checkout-button">Checkout</button>
+      </div>
+    </div>
 
     <main>
       <section>
         <h2>CozyCup™ tea</h2>
         <div class="product-container">
-          <div class="product">
+          <a href="product-matcha.html" class="product">
             <img src="images/matcha.JPEG" alt="Matcha" />
             <p>CozyCup Matcha</p>
-          </div>
-          <div class="product">
+            <span class="price">200kr</span>
+          </a>
+          <a href="product-chaiLatte.html" class="product">
             <img src="images/chai.JPEG" alt="Chai latte" />
             <p>CozyCup Chai latte</p>
-          </div>
-
-          </div>
-          </section>
-        </main>  
+            <span class="price">140kr</span>
+          </a>
+        </div>
+      </section>
+    </main>
 
     <!--Footer-->
     <footer><p>@Cozy Cup 2025</p></footer>
+    <script src="js/auth.js"></script>
   </body>
 </html>
