@@ -53,11 +53,34 @@ footer {
   font-weight: 800;
   cursor: pointer;
   transition: 0.5s ease;
+  animation: bounce 1s ease-in-out;
 }
 
 .logo:hover {
   transform: scale(1.2);
   color: #482e1d;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+
+  25% {
+    transform: translateY(-20px) scale(1.1) rotate(-5deg);
+  }
+
+  50% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+
+  75% {
+    transform: translateY(-10px) scale(1.05) rotate(5deg);
+  }
+
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
 }
 
 nav ul {
