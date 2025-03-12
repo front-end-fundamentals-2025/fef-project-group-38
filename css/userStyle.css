@@ -159,3 +159,111 @@ main {
   font-size: 0.8rem;
   margin: 5px;
 }
+
+/*Responsive*/
+
+/*For tablets*/
+@media (max-width: 1024px) {
+  header {
+    padding: 1rem 3%;
+  }
+
+  .logo {
+    font-size: 3rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+  }
+
+  nav a {
+    font-size: 1.2rem;
+  }
+
+  .right-corner img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .user-info {
+    padding: 1.5rem;
+  }
+
+  .user-info h1 {
+    font-size: 2rem;
+  }
+
+  .user-info p {
+    font-size: 1rem;
+  }
+}
+
+/*For phones*/
+
+@media (max-width: 767px) {
+  header {
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 2.5rem;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 55%;
+    top: 4%;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #f0daae;
+    transition: 0.3s ease;
+  }
+
+  nav {
+    display: none;
+  }
+
+  nav.active {
+    display: block;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  nav a {
+    font-size: 1rem;
+  }
+
+  .right-corner img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .user-info {
+    padding: 1rem;
+  }
+
+  .user-info h1 {
+    font-size: 1.8rem;
+  }
+
+  .user-info p {
+    font-size: 0.9rem;
+  }
+
+  #logout-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

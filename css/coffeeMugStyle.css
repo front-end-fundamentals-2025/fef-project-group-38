@@ -179,7 +179,7 @@ h2 {
   }
 
   nav ul {
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   nav a {
@@ -187,8 +187,8 @@ h2 {
   }
 
   .right-corner img {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
   }
 
   .product-container {
@@ -204,31 +204,9 @@ h2 {
   .product .price {
     font-size: 1rem;
   }
-
-  .modal-content {
-    width: 80%;
-  }
 }
 
 /*For phones*/
-
-/*Hamburger menu*/
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  position: absolute;
-  right: 55%;
-  top: 4%;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background-color: #f0daae;
-  transition: 0.3s ease;
-}
 
 @media (max-width: 767px) {
   header {
@@ -243,6 +221,19 @@ h2 {
 
   .hamburger {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 55%;
+    top: 4%;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #f0daae;
+    transition: 0.3s ease;
   }
 
   nav {
@@ -279,11 +270,6 @@ h2 {
 
   .product .price {
     font-size: 0.9rem;
-  }
-
-  .modal-content {
-    width: 90%;
-    margin: 20% auto;
   }
 
   .mainTitle h2 {

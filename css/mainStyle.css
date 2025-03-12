@@ -28,7 +28,6 @@ body {
 
 /*Header style*/
 header {
-  margin-top: 20 px;
   width: 100%;
   padding: 1rem 5%;
   background-color: #895d2b;
@@ -257,7 +256,7 @@ nav a:active {
   }
 
   nav ul {
-    gap: 1.5rem;
+    gap: 1rem;
   }
 
   nav a {
@@ -265,8 +264,8 @@ nav a:active {
   }
 
   .right-corner img {
-    width: 25px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
   }
 
   .product-container {
@@ -286,24 +285,6 @@ nav a:active {
 
 /*For phones*/
 
-/*Hamburger menu*/
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  position: absolute;
-  right: 55%;
-  top: 4%;
-}
-
-.hamburger span {
-  width: 25px;
-  height: 3px;
-  background-color: #f0daae;
-  transition: 0.3s ease;
-}
-
 @media (max-width: 767px) {
   header {
     flex-direction: row;
@@ -317,6 +298,19 @@ nav a:active {
 
   .hamburger {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: absolute;
+    right: 55%;
+    top: 4%;
+  }
+
+  .hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #f0daae;
+    transition: 0.3s ease;
   }
 
   nav {
