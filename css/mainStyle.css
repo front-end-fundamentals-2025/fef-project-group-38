@@ -169,71 +169,36 @@ nav a:active {
   margin: 5px;
 }
 
-/*Cart modal*/
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-  background-color: #f0daae;
-  margin: 10% auto;
+/*Cart*/
+.cart-container {
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
-  border: 1px solid #895d2b;
-  width: 300px;
-  border-radius: 10px;
-  text-align: center;
 }
 
-.modal-content h2 {
-  font-size: 1.5rem;
-  color: #895d2b;
-  margin-bottom: 1rem;
-}
-
-#cart-items {
-  list-style: none;
-  padding: 0;
-}
-
-#cart-items li {
-  font-size: 1rem;
-  color: #90553c;
-  margin-bottom: 0.5rem;
+.cart-item {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #895d2b;
+  padding: 10px 0;
 }
 
-#checkout-button {
-  padding: 0.5rem 1rem;
-  background-color: #895d2b;
-  color: #f0daae;
-  font-size: 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin-right: 20px;
 }
 
-#checkout-button:hover {
-  background-color: #482e1d;
+.cart-item-details {
+  flex-grow: 1;
 }
 
-.close {
-  color: #895d2b;
-  float: right;
-  font-size: 18px;
-  cursor: pointer;
-}
-
-.close:hover {
-  color: #482e1d;
+.cart-item-details p {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: #90553c;
 }
 
 .remove-button {
@@ -244,11 +209,27 @@ nav a:active {
   border-radius: 5px;
   cursor: pointer;
   font-size: 0.9rem;
-  margin-left: 10px;
   transition: background-color 0.3s ease;
 }
 
 .remove-button:hover {
+  background-color: #482e1d;
+}
+
+#checkout-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #895d2b;
+  color: #f0daae;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+#checkout-button:hover {
   background-color: #482e1d;
 }
 

@@ -98,18 +98,20 @@ if (document.getElementById("logout-link")) {
 //Check login status on page load
 window.onload = checkedLoggedIn;
 
-//CART
+// CART
 
-//Cart functionality
+// Cart functionality
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-//Function to update cart count
+// Function to update cart count
 function updateCartCount() {
   const cartCount = document.getElementById("cart-count");
-  cartCount.textContent = cart.length;
+  if (cartCount) {
+    cartCount.textContent = cart.length;
+  }
 }
 
-//Function to add a product to the cart
+// Function to add a product to the cart
 function addToCart(product) {
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
@@ -117,34 +119,53 @@ function addToCart(product) {
   alert(`${product.name} added to cart!`);
 }
 
-//Function to remove a product from the cart
+// Function to remove a product from the cart
 function removeFromCart(index) {
   cart.splice(index, 1);
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
-  displayCartItems();
+  displayCartItems(); // Refresh the cart items display
 }
 
-//Function to display cart items in the modal
+// Function to display cart items in the modal
 function displayCartItems() {
   const cartItems = document.getElementById("cart-items");
-  cartItems.innerHTML = ""; //Clear previous items
+  if (cartItems) {
+    cartItems.innerHTML = ""; // Clear previous items
 
-  cart.forEach((item, index) => {
-    const li = document.createElement("li");
-    li.textContent = `${item.name} - ${item.price}`;
+    cart.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.classList.add("cart-item");
 
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
-    removeButton.classList.add("remove-button"); //Class for styling
-    removeButton.addEventListener("click", () => removeFromCart(index));
+      // Add product image
+      const img = document.createElement("img");
+      img.src = item.image;
+      img.alt = item.name;
+      img.classList.add("cart-item-image");
+      li.appendChild(img);
 
-    li.appendChild(removeButton);
-    cartItems.appendChild(li);
-  });
+      // Add product name and price
+      const details = document.createElement("div");
+      details.classList.add("cart-item-details");
+      details.innerHTML = `
+        <p>${item.name}</p>
+        <p>${item.price}</p>
+      `;
+      li.appendChild(details);
+
+      // Add remove button
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "Remove";
+      removeButton.classList.add("remove-button");
+      removeButton.addEventListener("click", () => removeFromCart(index));
+      li.appendChild(removeButton); // Fix: Append removeButton to li
+
+      cartItems.appendChild(li);
+    });
+  }
 }
 
-//Add to cart button functionality
+// Add to cart button functionality
 document.querySelectorAll(".add-to-cart").forEach((button) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
@@ -158,28 +179,10 @@ document.querySelectorAll(".add-to-cart").forEach((button) => {
   });
 });
 
-//Cart icon click to open modal
-document.querySelector(".cart-icon").addEventListener("click", (e) => {
-  e.preventDefault();
-  const modal = document.getElementById("cart-modal");
-  modal.style.display = "block";
-  displayCartItems();
-});
-
-//Close the modal
-document.querySelector(".close").addEventListener("click", () => {
-  const modal = document.getElementById("cart-modal");
-  modal.style.display = "none";
-});
-
-//Checkout button functionality
-document.getElementById("checkout-button").addEventListener("click", () => {
-  alert("Coming soon");
-});
-
-//Update cart count on page load
+// Update cart count on page load
 window.onload = () => {
   updateCartCount();
-  checkedLoggedIn(); //Existing login check
-  displayUserInfo(); //Display user info on the user page
+  displayCartItems();
+  checkedLoggedIn(); // Existing login check
+  displayUserInfo(); // Display user info on the user page
 };
