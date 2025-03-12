@@ -111,11 +111,30 @@ function updateCartCount() {
   }
 }
 
+//Function to calculate the total price
+function calculateTotalPrice() {
+  return cart.reduce((total, item) => {
+    const price = parseFloat(item.price.replace("kr", "")); //Remove kr and convert to a number
+    return total + price;
+  }, 0);
+}
+
+//Function to display the total price
+function displayTotalPrice() {
+  const totalPriceElement = document.getElementById("total-price");
+  if (totalPriceElement) {
+    const totalPrice = calculateTotalPrice();
+    totalPriceElement.textContent = `${totalPrice}kr`;
+  }
+}
+
 // Function to add a product to the cart
 function addToCart(product) {
   cart.push(product);
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
+  displayCartItems();
+  displayTotalPrice();
   alert(`${product.name} added to cart!`);
 }
 
@@ -125,6 +144,7 @@ function removeFromCart(index) {
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
   displayCartItems(); // Refresh the cart items display
+  displayTotalPrice(); //Update total price
 }
 
 // Function to display cart items in the modal
@@ -183,6 +203,7 @@ document.querySelectorAll(".add-to-cart").forEach((button) => {
 window.onload = () => {
   updateCartCount();
   displayCartItems();
+  displayTotalPrice(); //Display the total price
   checkedLoggedIn(); // Existing login check
   displayUserInfo(); // Display user info on the user page
 };
