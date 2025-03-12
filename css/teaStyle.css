@@ -203,6 +203,9 @@ h2 {
   font-size: 1rem;
   color: #90553c;
   margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #checkout-button {
@@ -228,4 +231,20 @@ h2 {
 
 .close:hover {
   color: #482e1d;
+}
+
+.remove-button {
+  background-color: #895d2b;
+  color: #f0daae;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: #482e1d;
 }

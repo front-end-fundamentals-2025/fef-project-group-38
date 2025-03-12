@@ -64,6 +64,18 @@ if (document.getElementById("create-account-form")) {
     });
 }
 
+// Function to display user info on the user page
+function displayUserInfo() {
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (user) {
+    // Update the user info on the page
+    document.getElementById(
+      "user-name"
+    ).textContent = `Name: ${user.firstName} ${user.lastName}`;
+    document.getElementById("user-email").textContent = `Email: ${user.email}`;
+  }
+}
+
 //Handle logout
 if (document.getElementById("logout-link")) {
   document.getElementById("logout-link").addEventListener("click", (e) => {
@@ -95,14 +107,29 @@ function addToCart(product) {
   alert(`${product.name} added to cart!`);
 }
 
+//Function to remove a product from the cart
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCartCount();
+  displayCartItems();
+}
+
 //Function to display cart items in the modal
 function displayCartItems() {
   const cartItems = document.getElementById("cart-items");
   cartItems.innerHTML = ""; //Clear previous items
 
-  cart.forEach((item) => {
+  cart.forEach((item, index) => {
     const li = document.createElement("li");
     li.textContent = `${item.name} - ${item.price}`;
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.classList.add("remove-button"); //Class for styling
+    removeButton.addEventListener("click", () => removeFromCart(index));
+
+    li.appendChild(removeButton);
     cartItems.appendChild(li);
   });
 }
@@ -144,4 +171,5 @@ document.getElementById("checkout-button").addEventListener("click", () => {
 window.onload = () => {
   updateCartCount();
   checkedLoggedIn(); //Existing login check
+  displayUserInfo(); //Display user info on the user page
 };
