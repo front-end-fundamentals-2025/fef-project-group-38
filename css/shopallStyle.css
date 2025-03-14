@@ -43,6 +43,7 @@ footer {
   color: #f0daae;
   text-align: center;
   margin-top: auto;
+  margin: 5px 0;
 }
 
 /*Logo*/
@@ -99,85 +100,63 @@ nav a:active {
   transform: scale(1.2);
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  padding: 2rem;
-}
-
-#login-form {
-  background-color: #e3bf75;
-  padding: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
+/*Title*/
+.mainTitle {
   text-align: center;
+  margin-bottom: 2rem;
 }
 
-#login-form h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  color: #895d2b;
+.mainTitle h2 {
+  font-size: 3rem;
+  color: #90553c;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-#login-form label {
+/*Product Images*/
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 21px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product {
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border: 1px solid #895d2b;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+.product p {
+  margin-top: 10px;
+  font-size: 25px;
+  color: #90553c;
+}
+
+/*Product price*/
+.product .price {
   display: block;
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: #90553c;
-  text-align: left;
-}
-
-#login-form input {
-  width: 100%;
-  padding: 0.8rem;
-  margin-bottom: 1.5rem;
-  border: 2px solid #895d2b;
-  border-radius: 5px;
-  font-size: 1rem;
-  color: #90553c;
-  transition: border-color 0.3s ease;
-}
-
-#login-form input:focus {
-  border-color: #482e1d;
-}
-
-#login-form button {
-  width: 100%;
-  padding: 0.8rem;
-  background-color: #895d2b;
-  color: #f0daae;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-#login-form button:hover {
-  background-color: #482e1d;
-}
-
-#login-form p {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: #90553c;
-}
-
-#login-form a {
   color: #895d2b;
-  font-weight: 600;
-  text-decoration: underline;
-  transition: color 0.3s ease;
-}
-
-#login-form a:hover {
-  color: #482e1d;
+  margin-top: 5px;
 }
 
 /*Cart count*/
@@ -188,6 +167,81 @@ main {
   padding: 2px 6px;
   font-size: 0.8rem;
   margin: 5px;
+}
+
+/*Cart*/
+.cart-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #895d2b;
+  padding: 10px 0;
+}
+
+.cart-item-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.cart-item-details p {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: #90553c;
+}
+
+.remove-button {
+  background-color: #895d2b;
+  color: #f0daae;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.remove-button:hover {
+  background-color: #482e1d;
+}
+
+#checkout-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #895d2b;
+  color: #f0daae;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+#checkout-button:hover {
+  background-color: #482e1d;
+}
+
+#total-price-container {
+  text-align: right;
+  margin: 20px 0;
+  font-size: 1.5rem;
+  color: #90553c;
+}
+
+#total-price-container p {
+  margin: 0;
 }
 
 /*Responsive*/
@@ -215,26 +269,22 @@ main {
     height: 20px;
   }
 
-  #login-form {
-    padding: 1.5rem;
+  .product-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
   }
 
-  #login-form h1 {
-    font-size: 2rem;
+  .product p {
+    font-size: 20px;
   }
 
-  #login-form label {
-    font-size: 1rem;
-  }
-
-  #login-form input {
-    font-size: 0.9rem;
-  }
-
-  #login-form button {
+  .product .price {
     font-size: 1rem;
   }
 }
+
+/*For phones*/
 
 @media (max-width: 767px) {
   header {
@@ -263,6 +313,7 @@ main {
     background-color: #f0daae;
     transition: 0.3s ease;
   }
+
   nav {
     display: none;
   }
@@ -285,27 +336,21 @@ main {
     height: 20px;
   }
 
-  main {
-    padding: 1rem;
+  .product-container {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+    padding: 10px;
   }
 
-  #login-form {
-    padding: 1rem;
+  .product p {
+    font-size: 18px;
   }
 
-  #login-form h1 {
-    font-size: 1.8rem;
-  }
-
-  #login-form label {
+  .product .price {
     font-size: 0.9rem;
   }
 
-  #login-form input {
-    font-size: 0.8rem;
-  }
-
-  #login-form button {
-    font-size: 0.9rem;
+  .mainTitle h2 {
+    font-size: 2rem;
   }
 }

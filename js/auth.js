@@ -1,10 +1,12 @@
 //HAMBURGER TOGGLE MENU
+//To select the hamburger menu icon and navigation of the menu elements
 const hamburger = document.getElementById("hamburger");
 const navMenu = document.getElementById("nav-menu");
 
+//If the both elements exist, add a click event listener to toggle the menu visibility
 if (hamburger && navMenu) {
   hamburger.addEventListener("click", () => {
-    navMenu.classList.toggle("active");
+    navMenu.classList.toggle("active"); //Toggles the active class to show/hide the menu
   });
 }
 
@@ -13,26 +15,30 @@ if (hamburger && navMenu) {
 //Handle login submission
 if (document.getElementById("login-form")) {
   document.getElementById("login-form").addEventListener("submit", (e) => {
-    e.preventDefault();
+    e.preventDefault(); //Prevents the form from submitting normally
 
+    //Get user input
     const email = document.getElementById("login-email").value;
     const password = document.getElementById("login-password").value;
 
+    //Retrive stored users from local storage
     const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    //Check if the entered credentials match a stored user
     const user = users.find(
       (u) => u.email === email && u.password === password
     );
 
     if (user) {
-      localStorage.setItem("loggedInUser", JSON.stringify(user));
+      localStorage.setItem("loggedInUser", JSON.stringify(user)); //Store logged-in user
       window.location.href = "user.html"; //Redirect to user page
     } else {
-      alert("Invalid email or password.");
+      alert("Invalid email or password."); //Show error message
     }
   });
 }
 
-//Check if user logged in
+//Check if user logged in and redirect
 function checkedLoggedIn() {
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
   if (user) {
@@ -54,17 +60,20 @@ if (document.getElementById("create-account-form")) {
     .addEventListener("submit", (e) => {
       e.preventDefault();
 
+      //Get input values from the form
       const firstName = document.getElementById("first-name").value;
       const lastName = document.getElementById("last-name").value;
       const email = document.getElementById("email").value;
       const password = document.getElementById("password").value;
 
+      //Retrive existing users
       const users = JSON.parse(localStorage.getItem("users")) || [];
       const userExists = users.some((u) => u.email == email);
 
       if (userExists) {
-        alert("An account with this email already exists.");
+        alert("An account with this email already exists."); //Show error if user exists
       } else {
+        //Create new user and store it
         const newUser = { firstName, lastName, email, password };
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
@@ -78,7 +87,6 @@ if (document.getElementById("create-account-form")) {
 function displayUserInfo() {
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
   if (user) {
-    // Update the user info on the page
     document.getElementById(
       "user-name"
     ).textContent = `Name: ${user.firstName} ${user.lastName}`;
@@ -98,9 +106,9 @@ if (document.getElementById("logout-link")) {
 //Check login status on page load
 window.onload = checkedLoggedIn;
 
-// CART
+// CART FUNTIONALITY
 
-// Cart functionality
+//Retrive cart from local storage or initialize an empty array
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Function to update cart count
@@ -111,7 +119,7 @@ function updateCartCount() {
   }
 }
 
-//Function to calculate the total price
+//Function to calculate the total price of cart items
 function calculateTotalPrice() {
   return cart.reduce((total, item) => {
     const price = parseFloat(item.price.replace("kr", "")); //Remove kr and convert to a number
@@ -131,7 +139,7 @@ function displayTotalPrice() {
 // Function to add a product to the cart
 function addToCart(product) {
   cart.push(product);
-  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("cart", JSON.stringify(cart)); //Store the cart in local storage
   updateCartCount();
   displayCartItems();
   displayTotalPrice();
@@ -140,8 +148,8 @@ function addToCart(product) {
 
 // Function to remove a product from the cart
 function removeFromCart(index) {
-  cart.splice(index, 1);
-  localStorage.setItem("cart", JSON.stringify(cart));
+  cart.splice(index, 1); //Remove item from cart array
+  localStorage.setItem("cart", JSON.stringify(cart)); //Update local storage
   updateCartCount();
   displayCartItems(); // Refresh the cart items display
   displayTotalPrice(); //Update total price
@@ -199,11 +207,11 @@ document.querySelectorAll(".add-to-cart").forEach((button) => {
   });
 });
 
-// Update cart count on page load
+// Initialize cart and user session on page load
 window.onload = () => {
   updateCartCount();
   displayCartItems();
-  displayTotalPrice(); //Display the total price
-  checkedLoggedIn(); // Existing login check
-  displayUserInfo(); // Display user info on the user page
+  displayTotalPrice();
+  checkedLoggedIn();
+  displayUserInfo();
 };

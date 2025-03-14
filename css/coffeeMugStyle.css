@@ -28,7 +28,6 @@ body {
 
 /*Header style*/
 header {
-  margin-top: 20 px;
   width: 100%;
   padding: 1rem 5%;
   background-color: #895d2b;
@@ -91,8 +90,8 @@ nav a:active {
 }
 
 .right-corner img {
-  width: 24px;
-  height: 24px;
+  width: 30px;
+  height: 30px;
   transition: 0.3s ease;
 }
 
